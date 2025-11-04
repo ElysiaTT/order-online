@@ -68,18 +68,28 @@ public class CartActivity extends AppCompatActivity {
             checkoutButton.setEnabled(true);
         }
 
-        totalPriceText.setText(String.format(Locale.US, "$%.2f", shoppingCart.getTotalPrice()));
+        totalPriceText.setText(String.format(Locale.US, "¥%.2f", shoppingCart.getTotalPrice()));
         cartAdapter.notifyDataSetChanged();
     }
 
     private void checkout() {
         if (shoppingCart.getItems().isEmpty()) {
-            Toast.makeText(this, "Your cart is empty!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "购物车是空的！", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        String orderSummary = String.format(Locale.US,
-            "Order placed successfully!\nTotal: $%.2f\nItems: %d",
+        // 创建订单
+        // 注意：这里需要获取餐厅名称，实际应该从购物车中获取
+        // 目前简化处理，使用"外卖餐厅"作为默认值
+        // 在实际项目中，应该在添加商品到购物车时记录餐厅信息
+        String restaurantName = getRestaurantNameFromCart();
+
+        OrderManager orderManager = OrderManager.getInstance();
+        Order order = orderManager.createOrder(restaurantName, shoppingCart.getItems());
+
+        String orderSummary = String.format(Locale.getDefault(),
+            "订单提交成功！\n订单号：%s\n总金额：¥%.2f\n商品数：%d",
+            order.getOrderId(),
             shoppingCart.getTotalPrice(),
             shoppingCart.getItemCount());
 
@@ -88,8 +98,18 @@ public class CartActivity extends AppCompatActivity {
         shoppingCart.clear();
         updateUI();
 
-        // Optionally, go back to main activity after a delay
+        // 返回主页
         finish();
+    }
+
+    /**
+     * 从购物车获取餐厅名称
+     * 这里简化处理，实际应该在购物车中存储餐厅信息
+     */
+    private String getRestaurantNameFromCart() {
+        // 简化处理：返回默认餐厅名
+        // 实际项目中应该在ShoppingCart中添加餐厅信息
+        return "外卖餐厅";
     }
 
     @Override

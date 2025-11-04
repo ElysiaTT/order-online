@@ -143,7 +143,7 @@
         android:id="@+id/cartButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="🛒 购物车 (0 items) - $0.00"
+        android:text="🛒 购物车 (0 items) - ¥0.00"
         android:textSize="16sp"
         android:padding="16dp"
         android:backgroundTint="#1E90FF"

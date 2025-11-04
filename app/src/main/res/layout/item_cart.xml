@@ -58,12 +58,19 @@
             android:layout_marginTop="8dp"
             android:gravity="center_vertical">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/decreaseButton"
+                style="@style/Widget.MaterialComponents.Button"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:text="-"
-                android:textSize="18sp" />
+                android:backgroundTint="#673AB7"
+                android:text="−"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:padding="0dp"
+                app:cornerRadius="20dp" />
 
             <TextView
                 android:id="@+id/cartItemQuantity"
@@ -76,12 +83,19 @@
                 android:minWidth="30dp"
                 android:gravity="center" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/increaseButton"
+                style="@style/Widget.MaterialComponents.Button"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
+                android:backgroundTint="#673AB7"
                 android:text="+"
-                android:textSize="18sp" />
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:padding="0dp"
+                app:cornerRadius="20dp" />
 
             <TextView
                 android:id="@+id/cartItemTotal"

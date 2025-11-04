@@ -41,6 +41,24 @@
         <activity
             android:name=".CartActivity"
             android:exported="false" />
+        <!-- "我的"页面相关 -->
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false"
+            android:parentActivityName=".RestaurantListActivity" />
+        <activity
+            android:name=".ChangePasswordActivity"
+            android:exported="false"
+            android:parentActivityName=".ProfileActivity" />
+        <!-- 订单相关 -->
+        <activity
+            android:name=".OrderHistoryActivity"
+            android:exported="false"
+            android:parentActivityName=".RestaurantListActivity" />
+        <activity
+            android:name=".OrderDetailActivity"
+            android:exported="false"
+            android:parentActivityName=".OrderHistoryActivity" />
     </application>
 
 </manifest>

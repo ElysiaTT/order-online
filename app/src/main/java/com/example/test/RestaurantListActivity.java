@@ -23,7 +23,6 @@ public class RestaurantListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_restaurant_list);
 
         searchBar = findViewById(R.id.searchBar);
-        filterButton = findViewById(R.id.filterButton);
         chineseRestaurantCard = findViewById(R.id.chineseRestaurantCard);
         italianRestaurantCard = findViewById(R.id.italianRestaurantCard);
         burgerRestaurantCard = findViewById(R.id.burgerRestaurantCard);
@@ -44,10 +43,7 @@ public class RestaurantListActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        // 筛选按钮
-        filterButton.setOnClickListener(v -> {
-            Toast.makeText(this, "筛选功能：评分、配送时间、人均消费", Toast.LENGTH_SHORT).show();
-        });
+
 
         // 底部导航栏
         findViewById(R.id.navHome).setOnClickListener(v -> {
@@ -55,11 +51,13 @@ public class RestaurantListActivity extends AppCompatActivity {
         });
 
         findViewById(R.id.navOrders).setOnClickListener(v -> {
-            Toast.makeText(this, "订单页面", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(RestaurantListActivity.this, OrderHistoryActivity.class);
+            startActivity(intent);
         });
 
         findViewById(R.id.navProfile).setOnClickListener(v -> {
-            Toast.makeText(this, "我的页面", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(RestaurantListActivity.this, ProfileActivity.class);
+            startActivity(intent);
         });
     }
 }

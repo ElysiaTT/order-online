@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         int itemCount = shoppingCart.getItemCount();
         double total = shoppingCart.getTotalPrice();
         cartButton.setText(String.format(Locale.US,
-            "View Cart (%d items) - $%.2f", itemCount, total));
+            "View Cart (%d items) - ¥%.2f", itemCount, total));
     }
 
     @Override
